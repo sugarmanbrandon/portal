@@ -264,7 +264,7 @@ function displayDeflectedChart(deflectedCount, nonDeflectedCount) {
   });
 }
 const redirectToLoginPage = () => {
-  window.location.href = '/index.html';
+  window.location.href = './index.html';
 };
 
 async function signOut() {
