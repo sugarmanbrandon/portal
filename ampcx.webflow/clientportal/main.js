@@ -88,7 +88,7 @@ const firebaseConfig = {
                       company: company
                   });
                   // Redirect to user page
-                  window.location.href = "./user.html"; // change
+          window.location.href = "./ampcx.webflow/clientportal/user.html";
               }).catch(function(error) {
                   // An error happened
                   showErrorModal(error.message);
