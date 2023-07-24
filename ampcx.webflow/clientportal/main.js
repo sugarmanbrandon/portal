@@ -54,7 +54,7 @@ const firebaseConfig = {
           // Signed in
           var user = userCredential.user;
           // Redirect to user page
-          window.location.href = "ampcx.webflow/user.html";
+          window.location.href = "/user.html";
       })
       .catch((error) => {
           var errorCode = error.code;
