@@ -54,7 +54,7 @@ const firebaseConfig = {
           // Signed in
           var user = userCredential.user;
           // Redirect to user page
-window.location.href = "/portal/ampcx.webflow/clientportal/user.html";
+          window.location.href = "./user.html";
       })
       .catch((error) => {
           var errorCode = error.code;
@@ -88,7 +88,7 @@ window.location.href = "/portal/ampcx.webflow/clientportal/user.html";
                       company: company
                   });
                   // Redirect to user page
-          window.location.href = "/portal/ampcx.webflow/clientportal/user.html";
+          window.location.href = "./user.html";
 
               }).catch(function(error) {
                   // An error happened
