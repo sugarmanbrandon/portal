@@ -54,7 +54,7 @@ const firebaseConfig = {
           // Signed in
           var user = userCredential.user;
           // Redirect to user page
-          window.location.href = "user.html";
+          window.location.href = "./user.html";
       })
       .catch((error) => {
           var errorCode = error.code;
@@ -88,7 +88,7 @@ const firebaseConfig = {
                       company: company
                   });
                   // Redirect to user page
-                  window.location.href = "user.html"; // change
+                  window.location.href = "./user.html"; // change
               }).catch(function(error) {
                   // An error happened
                   showErrorModal(error.message);
