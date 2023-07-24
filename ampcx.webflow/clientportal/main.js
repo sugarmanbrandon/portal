@@ -54,7 +54,7 @@ const firebaseConfig = {
           // Signed in
           var user = userCredential.user;
           // Redirect to user page
-          window.location.href = "./user.html";
+          window.location.href = "clientportal/user.html";
       })
       .catch((error) => {
           var errorCode = error.code;
