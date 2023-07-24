@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="user-nav">
+      <button onclick="toggleTableVisibility()">Conversations</button>
+      <button onclick="toggleAnalyticsVisibility()">Analytics</button>
+      <button id="sign-out-btn">Sign Out</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+    <!-- Your page content goes here -->
+
+    <label for="company-select">Select Company:</label>
+    <select id="company-select">
+      <option value="boostup">BoostUp</option>
+      <option value="chronosphere">Chronosphere</option>
+      <option value="ampcx">AmpCX</option>
+
+    </select>
+ 
+    <div id="analytics" style="display:none;">
+      <div class="chart-container" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
+        <div id="most-frequently-searched-links-chart" class="chart-card"></div>
+        <div id="channel-chart"  class="chart-card"></div>
+        <div id="deflected-chart" class="chart-card"></div>
+        <div id="word-cloud-chart" class="chart-card"></div>
+      </div>
+    </div>
+
+    <div id="table-container" style="display:none;">
+      <table id="convo-list" class="display table table-striped">        
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Timestamp</th>
+            <th>Channel</th>
+
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+    <script src="user.js" ></script>
+</body>
+</html>
