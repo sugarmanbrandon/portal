@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv='cache-control' content='no-cache'> 
+<meta http-equiv='expires' content='0'> 
+<meta http-equiv='pragma' content='no-cache'>
+<head>
+    <title>Login/Signup Page</title>
+    <link rel="stylesheet" type="text/css" href="login-style.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id= "form-area">
+
+    <div id="login">
+        <h2>Login</h2>
+        <form>
+            <label for="login-email">Email:</label><br>
+            <input type="email" id="login-email"><br>
+            <label for="login-password">Password:</label><br>
+            <input type="password" id="login-password"><br>
+            <button id="login-btn">Login</button>
+            <button id="forgot-password-btn">Forgot Password</button>
+
+        </form>
+
+    </div>
+
+    <div id="signup" style="display: none;">
+        <h2>Signup</h2>
+        <form>
+            <label for="signup-email">Email:</label><br>
+            <input type="email" id="signup-email"><br>
+            <label for="signup-password">Password:</label><br>
+            <input type="password" id="signup-password"><br>
+            <label for="signup-name">Name:</label><br>
+            <input type="text" id="signup-name"><br>
+            <label for="signup-company">Company:</label><br>
+            <input type="text" id="signup-company"><br>
+            <button id="signup-btn">Signup</button>
+        </form>
+
+    </div>
+    <a id= "toggle-btn"> Toggle Sign In/Out</a>
+    </div>
+    <div id="error-modal" class="modal">
+        <div class="modal-content">
+          <span id="close-modal" class="close">&times;</span>
+          <p id="error-message"></p>
+        </div>
+      </div>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+    <script src="main.js" ></script>
+
+</body>
+</html>
