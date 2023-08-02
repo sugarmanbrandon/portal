@@ -1,202 +1,107 @@
+/* Import Google Fonts (unchanged) */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+/* Global Styles (unchanged) */
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #f8f8f8;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  animation: fadeIn 1s ease;
 }
 
-main {
-  padding-top: 80px; /* Adjust the value to match the header height */
-  animation: slideIn 1s ease;
-}
-
-button {
-  width: 100%;
-  height: 40px;
-  margin: 10px 0;
-  background-color: #4a69bd; /* Blue */
-  border: none;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-  background-color: #6a89cc; /* Light Blue */
-  transform: scale(1.05);
-}
-
-#form-area {
-  background-color: #ffffff;
+.main-container {
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  animation: slideIn 0.5s ease;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  transform: translateY(-50%);
-  width: 500px;
-  border: 2px solid #4a69bd; /* Blue */
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+/* Modern Navbar Styles (unchanged) */
+.navbar-brand,
+.navbar-nav .nav-link {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff !important;
+}
+
+.navbar {
+  background-color: #4a69bd;
+  box-shadow: 0 2px 15px 0 rgba(74, 105, 189, .15);
+  border-radius: 0;
+}
+
+.navbar-toggler {
+  border-color: #fff;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-collapse {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  transition: max-height 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 10px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1em;
+  padding: 8px 15px;
   border-radius: 4px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  font-family: inherit;
-  background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
+.navbar-nav .nav-link.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-nav .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-nav .nav-link:focus {
   outline: none;
-  border-color: #4a69bd; /* Blue */
-  box-shadow: 0 0 5px rgba(74, 105, 189, 0.5);
+  box-shadow: none;
 }
 
-#widget-container {
-  background-color: #f8f8f8;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 20px;
-  animation: fadeIn 0.5s ease;
+/* Animation Effects (unchanged) */
+.navbar-loaded .navbar-collapse {
+  max-height: 500px; /* Adjust the max-height value based on your content */
 }
 
-.widget-content {
-  text-align: center;
-}
-
-#convo-list thead input {
-  width: 100%;
-  padding: 3px;
-  box-sizing: border-box;
-}
-
-h2 {
-  text-align: center;
-  color: #333; /* Dark Gray */
-  margin-top: 0;
-  font-size: 24px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.container {
-  max-width: 100vw !important;
-  margin: 0 auto;
-  overflow-x: auto;
-}
-
-
-#table-container {
-  width: 100vw ;
-}
-.chart-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  justify-content: center;
-text-align: center;
-  
-}
-
-.chart-card {
-  text-align: center;
-
-  justify-content: center;
-  flex: 1;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-
-  animation: fadeIn 0.5s ease;
-}
-
-
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px; /* Adjust the value as needed */
-  background-color: #4a69bd; /* Blue */
-  color: white;
-  z-index: 1000;
-}
-
-nav.user-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-nav.user-nav button {
-  background-color: transparent;
-  border: none;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  margin: 0 10px;
-  padding: 8px 12px;
-  border-radius: 4px;
-}
-
-nav.user-nav button:hover {
-  background-color: rgba(106, 137, 204, 0.5); /* Light Blue with transparency */
-  transform: translateY(-2px);
+.navbar-loaded .navbar-toggler {
+  opacity: 1;
 }
 
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
   }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  0% {
-    transform: translateY(-50%) scale(0.95);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(-50%) scale(1);
-    opacity: 1;
+  to {
+    opacity: 0.7;
   }
 }
 
 @keyframes slideDown {
-  0% {
-    transform: translateY(-100%);
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  100% {
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
 }
+
+/* Rest of the existing CSS styles... */

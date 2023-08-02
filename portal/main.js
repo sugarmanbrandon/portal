@@ -8,7 +8,7 @@ const firebaseConfig = {
     measurementId: "G-7TR19C873Z"
   };
   
-  const approvedDomains = ['boostup.ai', 'codesleeprepeat.com'];
+ // const approvedDomains = ['boostup.ai', 'codesleeprepeat.com'];
   
   firebase.initializeApp(firebaseConfig);
   
@@ -72,7 +72,9 @@ const firebaseConfig = {
   
       // Check if the email domain is in the approvedDomains array
       var emailDomain = email.split('@')[1];
-      if (approvedDomains.includes(emailDomain)) {
+      
+      if(true){
+      //if (approvedDomains.includes(emailDomain)) {
           firebase.auth().createUserWithEmailAndPassword(email, password)
           .then((userCredential) => {
               // Signed in
@@ -140,3 +142,5 @@ const firebaseConfig = {
       }
     };
   }
+
+  

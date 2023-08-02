@@ -1,73 +1,113 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>User Page</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Custom CSS (if you have any other custom CSS, include it here) -->
+  <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
-  <header>
-    <nav class="user-nav">
-      <button onclick="toggleTableVisibility()">Conversations</button>
-      <button onclick="toggleAnalyticsVisibility()">Analytics</button>
-      <button id="sign-out-btn">Sign Out</button>
-    </nav>
-  </header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-loaded">
+    <a class="navbar-brand" href="#">[BoostUp] AmpCX Dashboard</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="toggleTableVisibility()">Conversations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="toggleAnalyticsVisibility()">Analytics</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="sign-out-btn">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-  <main>
-    <div class="container">
+  <div class="container mt-4">
     <!-- Your page content goes here -->
 
-    <label for="company-select">Select Company:</label>
-    <select id="company-select">
-      <option value="boostup">BoostUp</option>
-      <option value="chronosphere">Chronosphere</option>
-      <option value="ampcx">AmpCX</option>
-
-    </select>
- 
+    <!-- Analytics -->
     <div id="analytics" style="display:none;">
-      <div class="chart-container" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 10px;">
-        <div id="most-frequently-searched-links-chart" class="chart-card"></div>
-        <div id="channel-chart"  class="chart-card"></div>
-        <div id="deflected-chart" class="chart-card"></div>
-        <div id="word-cloud-chart" class="chart-card"></div>
+      <div class="row">
+        <div class="col-md-4">
+          <div id="link-chart" class="card">
+            <!-- Chart goes here -->
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div id="channel-chart" class="card">
+            <!-- Chart goes here -->
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div id="deflected-chart" class="card">
+            <!-- Chart goes here -->
+          </div>
+        </div>
       </div>
     </div>
 
-    <div id="table-container" style="display:none;">
-      <table id="convo-list" class="display table table-striped">        
+    <!-- Conversations Table -->
+    <div id="table-container">
+      <table id="convo-list" class="table table-striped">
         <thead>
           <tr>
-            <th>Question</th>
-            <th>Answer</th>
-            <th>Timestamp</th>
-            <th>Channel</th>
-
+            <th scope="col">Timestamp</th>
+            <th scope="col">Channel</th>
+            <th scope="col">Author</th>
+            <th scope="col">Question</th>
+            <th scope="col">Answer</th>
           </tr>
         </thead>
         <tbody></tbody>
         <tfoot>
           <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Author</th>
+            <th>Timestamp</th>
+            <th>Channel</th>
           </tr>
         </tfoot>
       </table>
     </div>
   </div>
-  </main>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+  <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
-    <script src="user.js" ></script>
+
+  <!-- Google Charts -->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <!-- Datatables -->
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Your custom user.js script -->
+  <script src="user.js"></script>
+
+  <script>
+    // jQuery function to toggle the navbar-collapse element (unchanged)
+    $(document).ready(function () {
+      $(".navbar-toggler").on("click", function () {
+        $(".navbar-collapse").toggleClass("active");
+        $(".nav-link").toggleClass("active");
+      });
+    });
+  </script>
 </body>
 </html>
