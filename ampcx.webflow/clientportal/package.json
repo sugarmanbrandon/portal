@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "firebase": "^9.22.1",
-    "natural": "^6.5.0",
-    "string-similarity": "^4.0.4"
-  }
-}
