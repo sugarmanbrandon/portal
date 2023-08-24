@@ -29,22 +29,7 @@ const fetchAndDisplayConversations = async (user) => {
 
       conversationsSnapshot.forEach((doc) => {
         let data = doc.data();
-        console.log(data.question.timestamp)
-        data.timestamp = data.question.timestamp
-        data.author = data.question.author
-        // Ensure there's a question property
-        if (!data.question) data.question = {};
-
-        // Append ' to the text if it exists
-        if (data.question.text) data.question.text += "'";
-
-        data.question.text = data.question.text.replace("<@U0595RZ3P6V>", "")
-                data.question.text = data.question.text.replace("'", "")
-
         
-        // Ensure there's a channel property
-        if (!data.channel) data.channel = 'No channel provided';
-
         // Push the updated data to the conversations array
         conversations.push(data);
       });
@@ -179,11 +164,11 @@ function displayConversations(conversations) {
             className: 'mdc-data-table__cell',
         },
     columns: [
-      { data: 'question.timestamp', render: function (data) { return new Date(data).toLocaleString(); }},
+      { data: 'timestamp', render: function (data) { return new Date(data).toLocaleString(); }},
       { data: 'channel' },
       { data: 'author' },
-      { data: 'question.text' },
-      { data: 'answer.text' }
+      { data: 'text' },
+      { data: 'reply' }
     ],
     destroy: true,
     responsive: true,
